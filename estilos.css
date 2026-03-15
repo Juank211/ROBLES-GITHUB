@@ -1,0 +1,774 @@
+/* ===ESTILOS GENERALES=== */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
+  margin: 0;
+  padding: 0;
+  color: #2f2f2f;
+  padding-top: 100px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.5px;
+}
+
+header {
+  background-color: #D46B82;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position:static;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  transform: translateY(-2px);
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px 0;
+  padding: 20px;
+  scroll-margin-top: 120px;
+}
+
+section h2 {
+  color: #D46B82;
+  margin-top: 0;
+}
+
+.servicios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.servicio {
+  text-align: center;
+  flex: 1 1 150px;
+}
+
+.servicio img {
+  width: 48px;
+  height: 48px;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 300px);
+  grid-auto-columns: 300px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+  scroll-padding: 20px;
+}
+
+.galeria-grid img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+.lightbox .cerrar {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #D46B82;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+.footer-icons i {
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-icons i:hover {
+  color: #f8bbd0;
+  transform: translateY(-5px);
+}
+
+.btn {
+  background-color: #f27d82;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+  background-color: #D46B82;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-subir {
+  position: fixed;
+  right: 20px;
+  background-color: #D46B82;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  animation: bounce 2s infinite;
+  z-index: 1000;
+  bottom: 20px;
+}
+
+/* boton de subir al inicio */
+.btn-subir:hover {
+  background-color: #f8bbd0;
+}
+
+.btn-subir.show {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ===== BOTÓN WHATSAPP (SIEMPRE VISIBLE) ===== */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    left: 20px; /* <--- Movido a la izquierda para evitar conflictos con Chatbase */
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+    color: white;
+}
+
+/* ===== AJUSTE PARA EL BOTÓN DE SUBIR ===== */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(212, 107, 130, 0.85); /* Semitransparente, elegante */
+    backdrop-filter: blur(4px);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1999;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+}
+
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scrollTopBtn:hover {
+    background-color: #D46B82;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.telefono-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, padding 0.3s ease, border-radius 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.telefono-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.telefono-link i {
+  font-size: 20px;
+  color: #25d366;
+}
+
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, padding 0.3s ease, border-radius 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.whatsapp-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.whatsapp-link i {
+  font-size: 20px;
+  color: #25d366;
+}
+
+.formulario {
+  max-width: 600px;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .servicios-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .footer-icons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+     /* ===== MARCA DE AGUA ===== */
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://res.cloudinary.com/daj3y9yja/image/upload/v1773529413/Logo_Robles_Penthouse_y3fmoz.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* ===== FORMULARIO DE RESERVA (MODAL CENTRADO) ===== */
+
+/* El fondo oscuro que cubre toda la pantalla */
+#reserva {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    z-index: 2000;
+    display: none; /* Oculto por defecto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;     /* Centrar verticalmente */
+    backdrop-filter: blur(5px); /* Efecto borroso elegante en el fondo */
+}
+
+#reserva.active {
+    display: flex; /* Se activa con Flexbox para centrar */
+}
+
+/* La caja blanca del formulario */
+#reservaContenido {
+    background-color: white;
+    width: 90%;
+    max-width: 500px; /* Ancho máximo ideal */
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    max-height: 90vh; /* Si la pantalla es bajita, no se sale */
+    overflow-y: auto; /* Permite scroll dentro del modal si es necesario */
+}
+
+/* Título del modal */
+#reservaContenido h2 {
+    text-align: center;
+    color: #D46B82;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Estilos de los inputs dentro del modal */
+.form-reserva {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Un poco más de respiro */
+}
+
+.form-reserva label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: -15px; /* Ajuste visual relajado */
+    font-size: 0.95rem;
+}
+
+.form-reserva input {
+    width: 100%;
+    padding: 14px 16px; /* Más padding para que el input sea más grande, ergonómico y touch-friendly */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.form-reserva input:focus {
+    border-color: #D46B82;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 107, 130, 0.15); /* Efecto luminoso sofisticado */
+}
+
+/* Botón de cerrar (X) en la esquina */
+.btn-cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cerrar-modal:hover {
+    color: #D46B82;
+}
+
+/* Estilos para el costo total destacado */
+#totalCost, #costoNoche {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #D46B82;
+    background-color: #fce4ec;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Animación de entrada suave */
+#reservaContenido, #mensajeExitoReserva {
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== LISTA DE SERVICIOS ===== */
+.lista-servicios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+@media (max-width: 992px) { 
+  .lista-servicios {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+@media (max-width: 768px) {
+  .lista-servicios {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+@media (max-width: 480px) {
+  .lista-servicios {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+}
+
+.lista-servicios li {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.lista-servicios i {
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  color: #D46B82;
+  margin-right: 10px;
+  text-align: center;
+  min-width: 24px;
+}
+
+/* ===== FORMULARIO DE CONTACTO VISUAL ===== */
+                  
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+        
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* ===Implemntar mensajes de error en el formulario */
+
+.error-message {
+  color: #d32f2f; /* Rojo oscuro para mejor contraste */
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none; /* Oculto por defecto */
+}
+
+/* Estilo para campos inválidos */
+input:invalid, textarea:invalid {
+  border: 1px solid #d32f2f; 
+  background-color: #ffebee; /* Fondo rojo claro */
+}
+
+/* Sistema de grid mejorado */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+        
+.form-group.mensaje-full-width,
+.rating-container {
+  grid-column: span 2;
+}
+        
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+        
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+        
+input:focus,
+textarea:focus {
+  border-color: #d46b82;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 107, 130, 0.2);
+}
+        
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+        
+/* Estrellas de calificación mejoradas */
+.rating-container {
+  margin: 20px 0;
+}
+       
+.rating-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #555;
+}
+        
+.estrellas {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+     
+.estrellas input {
+  display: none;
+}
+        
+.estrellas label {
+  font-size: 30px;
+  color: #f8bbd0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0 5px;
+}
+        
+.estrellas input:checked ~ label {
+  color: #d46b82;
+ }
+        
+.estrellas label:hover,
+.estrellas label:hover ~ label {
+  color: #d46b82;
+}
+        
+/* Botón mejorado */
+button[type="submit"] {
+  background-color: #d46b82;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: auto;
+  min-width: 200px;
+}
+        
+button[type="submit"]:hover {
+  background-color: #c05a71;
+}
+        
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 107, 130, 0.5);
+}
+
+error-message{
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display:block;
+}
+        
+/* Responsive design */
+@media (max-width: 768px) {
+.form-grid {
+  grid-template-columns: 1fr;
+  padding: 20px;
+}
+            
+button[type="submit"] {
+  width: 100%;
+  }
+}
+
+/* ===== TABLA DE SERVICIOS ===== */
+.tabla-servicios {
+  width: 100%;
+  border-spacing: 20px;
+  text-align: center;
+}
+
+.tabla-servicios td {
+  background-color: rgba(255,255,255,0.85);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  width: 50%;
+}
+
+.tabla-servicios i {
+  color: #D46B82;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* ===== TABLA DE NORMAS ===== */
+.tabla-normas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgba(255,255,255,0.85);
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabla-normas th,
+.tabla-normas td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-normas th {
+  background-color: #D46B82;
+  color: white;
+}
+
+/* ===== INSERCION VIDEOS ===== */
+
+.video-description h3 {
+    color: #D46B82; /* Reemplaza este valor con el color que desees */
+    font-size: 1.5em; /* Ajusta el tamaño de la fuente si es necesario */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+
+.video-container {
+    position: relative;
+    padding-bottom: 50%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 30px 0;
+    background: #000;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.video-description {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
