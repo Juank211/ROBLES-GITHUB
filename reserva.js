@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const PERSONAS_MAX = 5;             // Máximo permitido (4 + 1 excepción)
 
     // Referencias a elementos del DOM
+    // Referencias a elementos del DOM con Null Checks
+    const header = document.querySelector('header');
     const entradaInput = document.getElementById('entrada');
     const salidaInput = document.getElementById('salida');
     const personasInput = document.getElementById('personas');
@@ -15,13 +17,80 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Elementos del Modal y Formulario
     const mostrarFormularioBtn = document.getElementById('mostrarFormulario');
-    const reservaSection = document.getElementById('reserva'); // El section completo
+    const reservaSection = document.getElementById('reserva'); 
     const reservaForm = document.getElementById('reservaForm');
-    const reservaContenido = document.getElementById('reservaContenido'); // El div del formulario
-    const mensajeExito = document.getElementById('mensajeExitoReserva'); // El div del mensaje
+    const reservaContenido = document.getElementById('reservaContenido');
+    const mensajeExito = document.getElementById('mensajeExitoReserva'); 
     const btnSeguirNavegando = document.getElementById('btnSeguirNavegando');
-    const btnCerrarX = document.getElementById('cerrarModalX'); // El botón de texto "Cerrar"
+    const btnCerrarX = document.getElementById('cerrarModalX');
   
+    // --- EFECTO STICKY HEADER ---
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+    }
+
+    // --- EFECTO REVEAL ON SCROLL ---
+    const revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Una vez visible, dejamos de observar
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    }  
+    // --- LÓGICA DE IDIOMAS (i18n) ---
+    function changeLanguage(lang) {
+        if (!translations[lang]) return;
+
+        // Actualizar todos los elementos con data-i18n
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                el.innerText = translations[lang][key];
+            }
+        });
+
+        // Actualizar placeholders
+        const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholders.forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+            }
+        });
+
+        // Actualizar estado visual de los botones
+        document.querySelectorAll('.lang-switch span').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`btn-${lang}`);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        // Guardar preferencia
+        localStorage.setItem('preferredLang', lang);
+        window.currentLang = lang; // Para uso global (ej: mensajes de error)
+    }
+
+    // Exponer a global para los onclick en HTML
+    window.changeLanguage = changeLanguage;
+
+    // Cargar idioma preferido al inicio
+    const savedLang = localStorage.getItem('preferredLang') || 'es';
+    changeLanguage(savedLang);
+
     // 1. ABRIR Y CERRAR EL MODAL
     if (mostrarFormularioBtn) {
         mostrarFormularioBtn.addEventListener('click', (e) => {
@@ -109,9 +178,58 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Escuchar cambios en los inputs para recalcular en tiempo real
     if (entradaInput && salidaInput && personasInput) {
-        entradaInput.addEventListener('change', actualizarCostoUI);
-        salidaInput.addEventListener('change', actualizarCostoUI);
+        entradaInput.addEventListener('change', () => {
+            actualizarCostoUI();
+            verificarDisponibilidadSupabase(); // Llamada a Supabase
+        });
+        salidaInput.addEventListener('change', () => {
+            actualizarCostoUI();
+            verificarDisponibilidadSupabase(); // Llamada a Supabase
+        });
         personasInput.addEventListener('input', actualizarCostoUI);
+    }
+
+    // 2.5 FUNCIONALIDAD SUPABASE (BLOQUEO DE FECHAS)
+    async function verificarDisponibilidadSupabase() {
+        const fechaEntrada = entradaInput.value;
+        const fechaSalida = salidaInput.value;
+
+        if (!fechaEntrada || !fechaSalida) return;
+
+        try {
+            // Consulta de solapamiento: (inicio_bloqueo <= fin_reserva) AND (fin_bloqueo >= inicio_reserva)
+            const { data, error } = await supabaseClient
+                .from('bloqueos_fechas')
+                .select('*')
+                .lte('fecha_inicio', fechaSalida)
+                .gte('fecha_fin', fechaEntrada);
+
+            if (error) throw error;
+
+            let existingWarning = document.getElementById('supabase-blocked-warning');
+            const submitBtn = reservaForm.querySelector('button[type="submit"]');
+
+            if (data && data.length > 0) {
+                const motivo = data[0].motivo || (window.currentLang === 'es' ? 'No disponible' : 'Not available');
+                if (!existingWarning) {
+                    existingWarning = document.createElement('div');
+                    existingWarning.id = 'supabase-blocked-warning';
+                    existingWarning.style.cssText = "color: #ff4d4d; background: #ffe6e6; padding: 10px; margin: 10px 0; border-radius: 5px; font-weight: bold; font-size: 0.9rem; text-align: center;";
+                    reservaForm.insertBefore(existingWarning, document.getElementById('totalCost'));
+                }
+                
+                existingWarning.innerText = window.currentLang === 'es' 
+                    ? `⚠️ Esta fecha está bloqueada: ${motivo}` 
+                    : `⚠️ This date is blocked: ${motivo}`;
+                existingWarning.style.display = 'block';
+                if (submitBtn) submitBtn.disabled = true;
+            } else {
+                if (existingWarning) existingWarning.style.display = 'none';
+                if (submitBtn) submitBtn.disabled = false;
+            }
+        } catch (err) {
+            console.error("Error al consultar bloqueos:", err);
+        }
     }
   
     // 3. ENVÍO DEL FORMULARIO (AJAX - Sin recargar página)

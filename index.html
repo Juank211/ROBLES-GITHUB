@@ -3,36 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robles Penthouse</title>
+    <title data-i18n="header_title">Robles Penthouse</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="icon" href="favicon.png" type="favicon/png">
+    <script src="traducciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://jjzcargvtdnwqochgexa.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_keASAdOLtsOYPqkJJIgWiQ_pmEtrsLy";
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
 </head>
 <body id="top">
 
     <header>
-        <h1>Robles Penthouse</h1>
-        <p>Lujo, Vista y Confort en lo más alto de San Gil</p>
+        <div class="lang-switch">
+            <span onclick="changeLanguage('es')" id="btn-es" class="active">ES</span> | 
+            <span onclick="changeLanguage('en')" id="btn-en">EN</span>
+        </div>
+        <h1 data-i18n="header_title">Robles Penthouse</h1>
+        <p data-i18n="header_subtitle">Lujo, Vista y Confort en lo más alto de San Gil</p>
 
         <nav>
-            <a href="#acerca">Acerca</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#espacios">Otros Espacios</a>
-            <a href="#populares">Servicios Populares</a>
-            <a href="#normas">Normas</a>
-            <a href="#info">Información</a>
-            <a href="#ubicacion">Ubicación</a>
-            <a href="#especial">¿Por qué es especial?</a>
-            <a href="#" id="mostrarFormulario">Reserva aqui!!!</a>
+            <a href="#acerca" data-i18n="nav_about">Acerca</a>
+            <a href="#servicios" data-i18n="nav_services">Servicios</a>
+            <a href="#espacios" data-i18n="nav_spaces">Otros Espacios</a>
+            <a href="#populares" data-i18n="nav_popular">Servicios Populares</a>
+            <a href="#normas" data-i18n="nav_rules">Normas</a>
+            <a href="#info" data-i18n="nav_info">Información</a>
+            <a href="#ubicacion" data-i18n="nav_location">Ubicación</a>
+            <a href="#especial" data-i18n="nav_special">¿Por qué es especial?</a>
+            <a href="#" id="mostrarFormulario" data-i18n="nav_book">Reserva aqui!!!</a>
 
         </nav>
+
+        <div class="header-icons">
+            <a href="https://www.instagram.com/robles_penthouse" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61578252129657" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.airbnb.com.co/rooms/1405070874350096096" target="_blank" rel="noopener noreferrer" title="Airbnb">
+                <i class="fab fa-airbnb"></i>
+            </a>
+            <a href="contacto.html" title="Tu opinión es Importante">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
     </header>
 
     <main class="contenedor">
 
             <div class="container">
-            <section class="video-tour">
-                <h2>Tour Virtual</h2>
+            <section class="video-tour reveal">
+                <h2 data-i18n="virtual_tour_title">Tour Virtual</h2>
                 <div class="video-container">
                     <iframe width="560" height="315" 
                       src="https://www.youtube.com/embed/vcxwGydpOaY?si=_00xwMhI5HZA4tkK" 
@@ -43,45 +70,45 @@
                       allowfullscreen></iframe>
                 </div>
                 <div class="video-description">
-                    <h3>Conoce nuestro espacio</h3>
-                    <p>Vive San Gil desde las alturas. Descubre el encanto del Robles Penthouse, un alojamiento exclusivo ubicado en San Gil, la capital turística de Santander. Sumérgete en un entorno natural lleno de aventura, cultura y paisajes inolvidables. Disfruta de una vista privilegiada, comodidad excepcional y acceso a los principales destinos turísticos de la región.¡Haz tu reserva hoy y prepárate para una experiencia única en el corazón de Colombia!</p>
+                    <h3 data-i18n="virtual_tour_subtitle">Conoce nuestro espacio</h3>
+                    <p data-i18n="virtual_tour_desc">Vive San Gil desde las alturas. Descubre el encanto del Robles Penthouse, un alojamiento exclusivo ubicado en San Gil, la capital turística de Santander. Sumérgete en un entorno natural lleno de aventura, cultura y paisajes inolvidables. Disfruta de una vista privilegiada, comodidad excepcional y acceso a los principales destinos turísticos de la región.¡Haz tu reserva hoy y prepárate para una experiencia única en el corazón de Colombia!</p>
                 </div>
             </section>
 
-           <section id="acerca">
-            <h2>PENTHOUSE con terraza privada en la azotea y vistas panoramicas</h2>
+           <section id="acerca" class="reveal">
+            <h2 data-i18n="penthouse_title">PENTHOUSE con terraza privada en la azotea y vistas panoramicas</h2>
             <div class="galeria-grid">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529415/Foto_Desayuno_rfh3fi.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529421/cocteles_vinnkh.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529415/BarraCocina_ftpw50.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529419/Bar_difynw.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529417/Barra2_szljec.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529423/BarraCoctel_nua6wu.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529410/Cocina_whwa3i.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529421/cocteles_vinnkh.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529415/ComedorAuxiliar_xdu3fi.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529418/Desayuno_qdazdl.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529409/entradaCopa_h27sfk.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529419/EntradaJacuzzi_f11qlb.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529410/Escaleras_khauwh.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529419/Foto_Calefactor_w5o0mo.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529410/Foto_Desayuno_Comedor_h4ohyt.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529411/Foto_Habitacion_2_Inversa_zzufjb.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529418/Foto_Sala_Inversa_vewcqh.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529413/Habitacion1_sf78zt.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529418/Habitacion12_bgeqnr.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529419/Habitacion13_goekbi.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529422/Habitacion14_k495jc.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529423/Habitacion15_jbfy1x.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529422/Habitacion16_hk5sjy.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529419/Habitacion17_gyhlhu.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529420/IMG_20250422_133038_s44gvu.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529411/JacuzziNoche_yedrb2.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529416/JacuzziVista_w0245t.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529414/lampara_desde_el_segundo_piso_y6svre.jpg" alt="imagenes penthouse">
-                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/v1773529413/Logo_Robles_Penthouse_y3fmoz.jpg" alt="imagenes penthouse">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529415/Foto_Desayuno_rfh3fi.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529421/cocteles_vinnkh.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529415/BarraCocina_ftpw50.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529419/Bar_difynw.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529417/Barra2_szljec.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529423/BarraCoctel_nua6wu.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529410/Cocina_whwa3i.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529421/cocteles_vinnkh.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529415/ComedorAuxiliar_xdu3fi.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529418/Desayuno_qdazdl.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529409/entradaCopa_h27sfk.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529419/EntradaJacuzzi_f11qlb.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529410/Escaleras_khauwh.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529419/Foto_Calefactor_w5o0mo.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529410/Foto_Desayuno_Comedor_h4ohyt.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529411/Foto_Habitacion_2_Inversa_zzufjb.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529418/Foto_Sala_Inversa_vewcqh.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529413/Habitacion1_sf78zt.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529418/Habitacion12_bgeqnr.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529419/Habitacion13_goekbi.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529422/Habitacion14_k495jc.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529423/Habitacion15_jbfy1x.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529422/Habitacion16_hk5sjy.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529419/Habitacion17_gyhlhu.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529420/IMG_20250422_133038_s44gvu.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529411/JacuzziNoche_yedrb2.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529416/JacuzziVista_w0245t.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529414/lampara_desde_el_segundo_piso_y6svre.jpg" alt="imagenes penthouse" loading="lazy">
+                <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529413/Logo_Robles_Penthouse_y3fmoz.jpg" alt="Logo Robles Penthouse">
             </div>
-      <p>Robles Penthouse se destaca por su ubicación privilegiada en las afueras de San Gil, con una vista panorámica incomparable. Su diseño moderno y elegante, junto con un jacuzzi privado, hacen de este alojamiento un lugar exclusivo para descansar y disfrutar. Además, ofrece espacios acogedores, servicios de alta calidad, fácil acceso a atracciones turísticas y una experiencia pensada para quienes buscan confort, privacidad y un ambiente inolvidable.</p>
+      <p data-i18n="penthouse_desc">Robles Penthouse se destaca por su ubicación privilegiada en las afueras de San Gil, con una vista panorámica incomparable. Su diseño moderno y elegante, junto con un jacuzzi privado, hacen de este alojamiento un lugar exclusivo para descansar y disfrutar. Además, ofrece espacios acogedores, servicios de alta calidad, fácil acceso a atracciones turísticas y una experiencia pensada para quienes buscan confort, privacidad y un ambiente inolvidable.</p>
     </section>
 
     <!-- Formulario de reserva-->
@@ -90,165 +117,167 @@
         
         <button class="btn-cerrar-modal" id="cerrarModalX">×</button>
 
-        <h2>Verificar disponibilidad y precios</h2>
+        <h2 data-i18n="form_title">Verificar disponibilidad y precios</h2>
         
         <form class="form-reserva" id="reservaForm" action="https://formspree.io/f/xldlegwr" method="post">
           
-          <label for="entrada">Fecha de entrada</label>
+          <label for="entrada" data-i18n="form_arrival">Fecha de entrada</label>
           <input type="date" id="entrada" name="fecha_entrada" required>
 
-          <label for="salida">Fecha de salida</label>
+          <label for="salida" data-i18n="form_departure">Fecha de salida</label>
           <input type="date" id="salida" name="fecha_salida" required>
 
-          <label for="personas">Número de huéspedes (Max. 5)</label>
+          <label for="personas" data-i18n="form_guests">Número de huéspedes (Max. 5)</label>
           <input type="number" id="personas" name="numero_personas" min="2" max="5" value="2" required>
 
-          <label for="nombreReserva">Nombre Completo:</label>
-          <input type="text" id="nombreReserva" name="nombre" placeholder="Ingresa tu nombre completo" required>
+          <label for="nombreReserva" data-i18n="form_name">Nombre Completo:</label>
+          <input type="text" id="nombreReserva" name="nombre" data-i18n-placeholder="form_name_placeholder" placeholder="Ingresa tu nombre completo" required>
 
-          <label for="telefonoReserva">Teléfono / WhatsApp:</label>
-          <input type="tel" id="telefonoReserva" name="telefono" placeholder="Para contactarte" required>
+          <label for="telefonoReserva" data-i18n="form_phone">Teléfono / WhatsApp:</label>
+          <input type="tel" id="telefonoReserva" name="telefono" data-i18n-placeholder="form_phone_placeholder" placeholder="Para contactarte" required>
 
           <p id="totalCost">Costo Total: $0</p>
           <input type="hidden" id="costoTotalHidden" name="costo_total">
 
-          <button type="submit" class="btn">Consultar disponibilidad y reservar</button>
+          <button type="submit" class="btn" data-i18n="form_submit">Consultar disponibilidad y reservar</button>
         </form>
       </div>
 
       <div id="mensajeExitoReserva" style="display: none; background: white; padding: 40px; border-radius: 15px; text-align: center; max-width: 500px; width: 90%;">
           <i class="fas fa-check-circle" style="font-size: 60px; color: #25d366; margin-bottom: 20px;"></i>
-          <h2 style="color: #2f2f2f; margin:0;">¡Solicitud Enviada!</h2>
-          <p style="font-size: 1.1rem; margin: 20px 0;">Hemos recibido tu solicitud. Te contactaremos pronto al WhatsApp para confirmar.</p>
-          <button class="btn" id="btnSeguirNavegando">Seguir Navegando</button>
+          <h2 style="color: #2f2f2f; margin:0;" data-i18n="success_title">¡Solicitud Enviada!</h2>
+          <p style="font-size: 1.1rem; margin: 20px 0;" data-i18n="success_desc">Hemos recibido tu solicitud. Te contactaremos pronto al WhatsApp para confirmar.</p>
+          <button class="btn" id="btnSeguirNavegando" data-i18n="success_btn">Seguir Navegando</button>
       </div>
     </section>
 
-    <section id="servicios">
-      <h2>Servicios</h2>
+    <section id="servicios" class="reveal">
+      <h2 data-i18n="services_title">Servicios</h2>
       <ul class="lista-servicios">
-        <li><i class="fa-solid fa-mug-hot"></i> Cocina Equipada</li>
-        <li><i class="fas fa-soap"></i> Lavadora</li>
-        <li><i class="fas fa-tshirt"></i> Secadora</li>
-        <li><i class="fas fa-hot-tub-person"></i> Jacuzzi</li>
-        <li><i class="fas fa-tv"></i> Smart TV</li>
-        <li><i class="fas fa-shower"></i> Baño Privado</li>
-        <li><i class="fas fa-snowflake"></i> Aire Acondicionado</li>
-        <li><i class="fas fa-champagne-glasses"></i> Mini Bar</li>
+        <li><i class="fa-solid fa-mug-hot"></i> <span data-i18n="service_kitchen">Cocina Equipada</span></li>
+        <li><i class="fas fa-soap"></i> <span data-i18n="service_washer">Lavadora</span></li>
+        <li><i class="fas fa-tshirt"></i> <span data-i18n="service_dryer">Secadora</span></li>
+        <li><i class="fas fa-hot-tub-person"></i> <span data-i18n="service_jacuzzi">Jacuzzi</span></li>
+        <li><i class="fas fa-tv"></i> <span data-i18n="service_tv">Smart TV</span></li>
+        <li><i class="fas fa-shower"></i> <span data-i18n="service_bathroom">Baño Privado</span></li>
+        <li><i class="fas fa-snowflake"></i> <span data-i18n="service_ac">Aire Acondicionado</span></li>
+        <li><i class="fas fa-champagne-glasses"></i> <span data-i18n="service_minibar">Mini Bar</span></li>
       </ul>
     </section>
 
-    <section id="espacios">
-      <h2>Otros Espacios</h2>
-      <p>Sala, baño inteligente, terraza comedor, zona karaoke, jardin natural y un ambiente acogedor y privado</p>
+    <section id="espacios" class="reveal">
+      <h2 data-i18n="spaces_title">Otros Espacios</h2>
+      <p data-i18n="spaces_desc">Sala, baño inteligente, terraza comedor, zona karaoke, jardin natural y un ambiente acogedor y privado</p>
     </section>
 
-    <section id="populares">
-      <h2>Servicios Populares</h2>
+    <section id="populares" class="reveal">
+      <h2 data-i18n="popular_title">Servicios Populares</h2>
       <table class="tabla-servicios">
         <tr>
-          <td><i class="fas fa-solid fa-square-parking"></i><p>Parqueadero</p></td>
-          <td><i class="fas fa-wifi"></i><p>wifi</p></td>
+          <td><i class="fas fa-solid fa-square-parking"></i><p data-i18n="popular_parking">Parqueadero</p></td>
+          <td><i class="fas fa-wifi"></i><p data-i18n="popular_wifi">wifi</p></td>
         </tr>
         <tr>
-          <td><i class="fas fa-utensils"></i><p>Vajilla y Cubierteria</p></td>
-          <td><i class="fas fa-panorama"></i><p>Vista Panoramica</p></td>
+          <td><i class="fas fa-utensils"></i><p data-i18n="popular_dishes">Vajilla y Cubierteria</p></td>
+          <td><i class="fas fa-panorama"></i><p data-i18n="popular_views">Vista Panoramica</p></td>
         </tr>
       </table>
     </section>
 
-    <section id="normas">
-      <h2>Normas del Alojamiento</h2>
+    <section id="normas" class="reveal">
+      <h2 data-i18n="rules_title">Normas del Alojamiento</h2>
       <table class="tabla-normas">
         <tr>
-          <th>Norma</th>
-          <th>Descripción</th>
+          <th data-i18n="rule_header_name">Norma</th>
+          <th data-i18n="rule_header_desc">Descripción</th>
         </tr>
         <tr>
-          <td>Check-in</td>
-          <td>Desde las 15:00</td>
+          <td data-i18n="rule_checkin_name">Check-in</td>
+          <td data-i18n="rule_checkin_desc">Desde las 15:00</td>
         </tr>
         <tr>
-          <td>Check-out</td>
-          <td>Antes de las 12:00</td>
+          <td data-i18n="rule_checkout_name">Check-out</td>
+          <td data-i18n="rule_checkout_desc">Antes de las 12:00</td>
         </tr>
         <tr>
-          <td>Menores de edad</td>
-          <td>No se admiten menores de edad, ya que las instalaciones no se encuentran adecuadas</td>
+          <td data-i18n="rule_minors_name">Menores de edad</td>
+          <td data-i18n="rule_minors_desc">No se admiten menores de edad, ya que las instalaciones no se encuentran adecuadas</td>
         </tr>
         <tr>
-          <td>Mascotas</td>
-          <td>No estan permitidas las mascotas</td>
+          <td data-i18n="rule_pets_name">Mascotas</td>
+          <td data-i18n="rule_pets_desc">No estan permitidas las mascotas</td>
         </tr>
       </table>
     </section>
 
 
-    <section id="info">
-      <h2>Información Importante</h2>
-      <p>Recomendaciones de seguridad, contacto de emergencia, y más.</p>
+    <section id="info" class="reveal">
+      <h2 data-i18n="info_title">Información Importante</h2>
+      <p data-i18n="info_desc">Recomendaciones de seguridad, contacto de emergencia, y más.</p>
     <ul>
-        <li>Se encuentra en un 5 piso, por lo que hay que subir escaleras</li>
-        <li>Actualmente se estan adelantando obras en los pisos inferiores de 07:00 a 17:00</li>
-        <li>Posibilidad de entrada/salida flexible (previa coordinación)</li>
+        <li data-i18n="info_item_1">Se encuentra en un 5 piso, por lo que hay que subir escaleras</li>
+        <li data-i18n="info_item_2">Actualmente se estan adelantando obras en los pisos inferiores de 07:00 a 17:00</li>
+        <li data-i18n="info_item_3">Posibilidad de entrada/salida flexible (previa coordinación)</li>
     </ul>
 
     </section>
 
-    <section id="ubicacion">
-      <h2>Cerca de la Ubicación</h2>
+    <section id="ubicacion" class="reveal">
+      <h2 data-i18n="location_nearby">Cerca de la Ubicación</h2>
       <ul>
-        <li><i class="fas fa-utensils"></i> Restaurante</li>
-        <li><i class="fas fa-sailboat"></i> Deportes Acuaticos</li>
-        <li><i class="fas fa-parachute-box"></i> Parapente</li>
+        <li><i class="fas fa-utensils"></i> <span data-i18n="nearby_restaurant">Restaurante</span></li>
+        <li><i class="fas fa-sailboat"></i> <span data-i18n="nearby_water">Deportes Acuaticos</span></li>
+        <li><i class="fas fa-parachute-box"></i> <span data-i18n="nearby_paragliding">Parapente</span></li>
       </ul>
     </section>
 
-    <section id="especial">
-      <h2>¿Qué hace especial a este alojamiento?</h2>
-      <p>Robles Penthouse te ofrece una experiencia de lujo y confort, ste exclusivo penthouse cuenta con:
+    <section id="especial" class="reveal">
+      <h2 data-i18n="special_title">¿Qué hace especial a este alojamiento?</h2>
+      <p>
+        <span data-i18n="special_desc_1">Robles Penthouse te ofrece una experiencia de lujo y confort, este exclusivo penthouse cuenta con:</span>
 <ul>
-  <li>Habitaciones con baño privado</li>
-  <li>Baño inteligente con funciones modernas</li>
-  <li>Duchas con agua caliente</li>
-  <li>Cocina completamente equipada</li>
-  <li>Sala de estar interior y comedor exterior</li>
-  <li>Minibar con sistema de karaoke</li>
-  <li>Espacios diseñados para el descanso y el entretenimiento</li>
+  <li data-i18n="special_item_1">Habitaciones con baño privado</li>
+  <li data-i18n="special_item_2">Baño inteligente con funciones modernas</li>
+  <li data-i18n="special_item_3">Duchas con agua caliente</li>
+  <li data-i18n="special_item_4">Cocina completamente equipada</li>
+  <li data-i18n="special_item_5">Sala de estar interior y comedor exterior</li>
+  <li data-i18n="special_item_6">Minibar con sistema de karaoke</li>
+  <li data-i18n="special_item_7">Espacios diseñados para el descanso y el entretenimiento</li>
 </ul>
 
-Ideal para escapadas románticas, celebraciones especiales o simplemente para disfrutar del estilo de vida en lo más alto.
+<span data-i18n="special_desc_2">Ideal para escapadas románticas, celebraciones especiales o simplemente para disfrutar del estilo de vida en lo más alto.</span>
 <br><br>
-¡Bienvenidos a Robles Penthouse!
-Vive una experiencia de lujo y confort en las alturas.
+<b data-i18n="special_welcome">¡Bienvenidos a Robles Penthouse!</b><br>
+<span data-i18n="special_experience">Vive una experiencia de lujo y confort en las alturas.</span>
+<br><br>
+<span data-i18n="special_designed">Este exclusivo penthouse está diseñado para quienes buscan un ambiente elegante, moderno y lleno de detalles únicos. Perfecto para escapadas románticas, celebraciones especiales o simplemente para relajarte con estilo.</span>
 
-Este exclusivo penthouse está diseñado para quienes buscan un ambiente elegante, moderno y lleno de detalles únicos. Perfecto para escapadas románticas, celebraciones especiales o simplemente para relajarte con estilo.
-
-Incluye:
+<br><br>
+<span data-i18n="special_includes">Incluye:</span>
 <ul>
-  <li>Sala de estar exterior con calefactor y comedor al aire libre con vista panorámica</li>
-  <li>Sala interior con televisor y un ambiente acogedor con vista a la ciudad</li>
-  <li>Cocina totalmente equipada</li>
-  <li>Lavadora-secadora incluida para que tu estadía sea agradable</li>
-  <li>Servicio de minibar con sistema de karaoke para momentos inolvidables</li>
-  <li>2 habitaciones, cada una con televisor, baño privado el cual cuenta con agua caliente y aire acondicionado</li>
-  <li>Jacuzzi con acceso a un amplio balcón</li>
+  <li data-i18n="special_inc_1">Sala de estar exterior con calefactor y comedor al aire libre con vista panorámica</li>
+  <li data-i18n="special_inc_2">Sala interior con televisor y un ambiente acogedor con vista a la ciudad</li>
+  <li data-i18n="special_inc_3">Cocina totalmente equipada</li>
+  <li data-i18n="special_inc_4">Lavadora-secadora incluida para que tu estadía sea agradable</li>
+  <li data-i18n="special_inc_5">Servicio de minibar con sistema de karaoke para momentos inolvidables</li>
+  <li data-i18n="special_inc_6">2 habitaciones, cada una con televisor, baño privado el cual cuenta con agua caliente y aire acondicionado</li>
+  <li data-i18n="special_inc_7">Jacuzzi con acceso a un amplio balcón</li>
 </ul>
 
-Déjate envolver por el encanto de un espacio creado para el descanso, el entretenimiento y el placer.
-Robles Penthouse: donde el lujo se encuentra con la comodidad.</p>
+<span data-i18n="special_footer">Déjate envolver por el encanto de un espacio creado para el descanso, el entretenimiento y el placer. Robles Penthouse: donde el lujo se encuentra con la comodidad.</span>
+</p>
     </section> 
         
-        <section class="mapa">
-            <h2>Ubicación</h2>
+        <section class="mapa reveal">
+            <h2 data-i18n="map_title">Ubicación</h2>
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3976.4!2d-73.135571!3d6.564812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1717940000000"
                 width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
 
 <section id="reseñas" style="background-color: #fff5f8; padding: 60px 0;">
-    <div class="contenedor">
-        <h2 style="text-align: center; color: #D46B82; margin-bottom: 40px;">Lo que dicen nuestros huéspedes</h2>
+    <div class="contenedor reveal">
+        <h2 style="text-align: center; color: #D46B82; margin-bottom: 40px;" data-i18n="reviews_title">Lo que dicen nuestros huéspedes</h2>
         
         <div class="grid-reseñas">
             <div class="tarjeta-reseña">
@@ -256,11 +285,11 @@ Robles Penthouse: donde el lujo se encuentra con la comodidad.</p>
                     <div class="icono-usuario"><i class="fas fa-user-circle"></i></div>
                     <div class="info-usuario">
                         <h3>Daniela Cano</h3>
-                        <span class="fecha-reseña">Julio 2024 </span>
+                        <span class="fecha-reseña" data-i18n="reviews_date_1">Julio 2024</span>
                     </div>
                     <div class="estrellas">★★★★★</div>
                 </div>
-                <p class="texto-reseña">"Excelente lugar, con una vista espectacular, la mejor atención 10/10."</p>
+                <p class="texto-reseña" data-i18n="reviews_text_1">"Excelente lugar, con una vista espectacular, la mejor atención 10/10."</p>
             </div>
 
             <div class="tarjeta-reseña">
@@ -268,11 +297,11 @@ Robles Penthouse: donde el lujo se encuentra con la comodidad.</p>
                     <div class="icono-usuario"><i class="fas fa-user-circle"></i></div>
                     <div class="info-usuario">
                         <h3>Konstantinos</h3>
-                        <span class="fecha-reseña">Noviembre 2025 </span>
+                        <span class="fecha-reseña" data-i18n="reviews_date_2">Noviembre 2025</span>
                     </div>
                     <div class="estrellas">★★★★★</div>
                 </div>
-                <p class="texto-reseña">"Everything to be honest... Excellent place / apartment, easily fits 4 people, a family. Everything is done to high specs / modern ...amazing views of the town and more .. excellent facilities .. the staff were exceptional.. friendly , and attentive. Also flexible with any requests .. breakfast was delicious , 3 options to choose from ... Location is great.. outskirts of town , easy 5 mins taxi or can walk ...If I would go to San Gill I would definitely go back .. actually it could even be a reason to go to San Gill .. apart from nature / activities"</p>
+                <p class="texto-reseña" data-i18n="reviews_text_2">"Everything to be honest... Excellent place / apartment, easily fits 4 people, a family. Everything is done to high specs / modern ...amazing views of the town and more .. excellent facilities .. the staff were exceptional.. friendly , and attentive. Also flexible with any requests .. breakfast was delicious , 3 options to choose from ... Location is great.. outskirts of town , easy 5 mins taxi or can walk ...If I would go to San Gill I would definitely go back .. actually it could even be a reason to go to San Gill .. apart from nature / activities"</p>
             </div>
 
 
@@ -281,16 +310,16 @@ Robles Penthouse: donde el lujo se encuentra con la comodidad.</p>
                     <div class="icono-usuario"><i class="fas fa-user-circle"></i></div>
                     <div class="info-usuario">
                         <h3>Lina</h3>
-                        <span class="fecha-reseña">Septiembre 2025 </span>
+                        <span class="fecha-reseña" data-i18n="reviews_date_3">Septiembre 2025</span>
                     </div>
                     <div class="estrellas">★★★★★</div>
                 </div>
-                <p class="texto-reseña">"Nuestra estancia ha sido simplemente maravillosa. Desde el primer momento me encantó el ambiente acogedor, las vistas espectaculares y la tranquilidad que transmite el lugar. La casa está decorada con mucho gusto y cada detalle invita a relajarse y disfrutar.  Me gustó tanto la experiencia que decidí quedarme una noche más, porque realmente es un sitio que invita a prolongar la estancia. Sin duda, un lugar al que me encantaría volver y que recomiendo totalmente a quienes busquen descanso, belleza y buena energía."</p>
+                <p class="texto-reseña" data-i18n="reviews_text_3">"Nuestra estancia ha sido simplemente maravillosa. Desde el primer momento me encantó el ambiente acogedor, las vistas espectaculares y la tranquilidad que transmite el lugar. La casa está decorada con mucho gusto y cada detalle invita a relajarse y disfrutar.  Me gustó tanto la experiencia que decidí quedarme una noche más, porque realmente es un sitio que invita a prolongar la estancia. Sin duda, un lugar al que me encantaría volver y que recomiendo totalmente a quienes busquen descanso, belleza y buena energía."</p>
             </div>
             </div>
 
         <div style="text-align: center; margin-top: 40px;">
-            <a href="https://g.page/r/YOUR_GOOGLE_URL/review" target="_blank" class="btn" style="background-color: #4285F4; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px rgba(66, 133, 244, 0.3);">
+            <a href="https://g.page/r/YOUR_GOOGLE_URL/review" target="_blank" class="btn" style="background-color: #4285F4; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px rgba(66, 133, 244, 0.3);" data-i18n="google_reviews">
                 <i class="fab fa-google"></i> Ver todas las reseñas en Google
             </a>
         </div>
@@ -300,8 +329,8 @@ Robles Penthouse: donde el lujo se encuentra con la comodidad.</p>
     </main>    
 
     <footer>        
-        <p>&copy; 2025 Robles Penthouse. Todos los derechos reservados</p>
-        <p><strong>Contáctenos:</strong> 
+        <p data-i18n="footer_rights">&copy; 2025 Robles Penthouse. Todos los derechos reservados</p>
+        <p><strong data-i18n="footer_contact">Contáctenos:</strong> 
         <a href="https://wa.me/573116147982" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i> +57 311 6147982
         </a>
@@ -312,6 +341,9 @@ Robles Penthouse: donde el lujo se encuentra con la comodidad.</p>
         <div class="footer-icons">
           <a href="https://www.instagram.com/robles_penthouse" target="_blank" rel="noopener noreferrer" title="Instagram">
             <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61578252129657" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <i class="fab fa-facebook"></i>
           </a>
           <a href="https://www.airbnb.com.co/rooms/1405070874350096096" target="_blank" rel="noopener noreferrer" title="Airbnb">
             <i class="fab fa-airbnb"></i>
