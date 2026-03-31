@@ -117,7 +117,10 @@ const translations = {
         "contact_label_message": "Mensaje:",
         "contact_message_placeholder": "Escribe tu mensaje aquí...",
         "contact_rating_title": "¿Cómo calificarías tu experiencia?",
-        "contact_submit": "Enviar mensaje"
+        "contact_submit": "Enviar mensaje",
+        "review_hub_title": "Nuestra Huella Digital",
+        "review_hub_subtitle": "Síguenos y conoce las opiniones de nuestra comunidad en las principales plataformas.",
+        "menu_close": "Cerrar"
     },
     en: {
         "header_title": "Robles Penthouse",
@@ -237,6 +240,9 @@ const translations = {
         "contact_label_message": "Message Body:",
         "contact_message_placeholder": "How can we assist you?",
         "contact_rating_title": "How would you rate your experience?",
-        "contact_submit": "Dispatch Message"
+        "contact_submit": "Dispatch Message",
+        "review_hub_title": "Our Digital Footprint",
+        "review_hub_subtitle": "Follow us and explore our community's feedback across the leading platforms.",
+        "menu_close": "Close"
     }
 };
