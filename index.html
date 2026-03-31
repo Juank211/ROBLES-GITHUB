@@ -25,7 +25,12 @@
         <h1 data-i18n="header_title">Robles Penthouse</h1>
         <p data-i18n="header_subtitle">Lujo, Vista y Confort en lo más alto de San Gil</p>
 
-        <nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="mobileNav">
+            <button class="menu-close" id="menuClose" aria-label="Cerrar menú">&times;</button>
             <a href="#acerca" data-i18n="nav_about">Acerca</a>
             <a href="#servicios" data-i18n="nav_services">Servicios</a>
             <a href="#espacios" data-i18n="nav_spaces">Otros Espacios</a>
@@ -35,7 +40,6 @@
             <a href="#ubicacion" data-i18n="nav_location">Ubicación</a>
             <a href="#especial" data-i18n="nav_special">¿Por qué es especial?</a>
             <a href="#" id="mostrarFormulario" data-i18n="nav_book">Reserva aqui!!!</a>
-
         </nav>
 
         <div class="header-icons">
@@ -318,15 +322,9 @@
             </div>
             </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="https://g.page/r/YOUR_GOOGLE_URL/review" target="_blank" class="btn" style="background-color: #4285F4; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px rgba(66, 133, 244, 0.3);" data-i18n="google_reviews">
-                <i class="fab fa-google"></i> Ver todas las reseñas en Google
-            </a>
-        </div>
-    </div>
-</section>
+    </main>
 
-    </main>    
+
 
     <footer>        
         <p data-i18n="footer_rights">&copy; 2025 Robles Penthouse. Todos los derechos reservados</p>

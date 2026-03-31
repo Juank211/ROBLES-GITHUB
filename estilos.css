@@ -6,7 +6,6 @@ body {
   margin: 0;
   padding: 0;
   color: #2f2f2f;
-  padding-top: 100px; /* Mantener para evitar que el header tape el contenido si es fijo */
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -15,27 +14,32 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.5px;
 }
 
-/* header styles */
-
 header {
-  background-color: #D46B82;
+  background-color: rgba(212, 107, 130, 0.9);
   color: white;
-  padding: 20px;
+  padding: 15px 20px;
   text-align: center;
-  position: fixed; /* Cambiado a fixed para el efecto sticky */
-  width: 100%;
+  position: sticky; /* Fijo en el scroll */
   top: 0;
-  left: 0;
+  width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px); /* Efecto traslúcido moderno */
+  -webkit-backdrop-filter: blur(8px);
 }
 
 header.sticky {
   padding: 10px 20px;
-  background-color: rgba(212, 107, 130, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 5px 0;
+}
+
+header p {
+    font-size: 0.9rem;
 }
 
 /* header icons hover */
@@ -55,9 +59,10 @@ nav a {
   color: #fff;
   text-decoration: none;
   margin: 0 10px;
-  padding: 5px 10px;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  padding: 5px 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav a:hover {
@@ -355,9 +360,7 @@ input, textarea {
 
 @media (max-width: 768px) {
   nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: none; /* Oculto el menú horizontal solicitado */
   }
 
   .servicios-grid {
@@ -387,7 +390,7 @@ input, textarea {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.1; /* Incrementada según pedido del usuario */
+    opacity: 0.05; /* Textura sutil solicitada */
     z-index: -1;
 }
 
@@ -852,4 +855,76 @@ button[type="submit"] {
 
 .galeria-grid::-webkit-scrollbar-track {
   background: #fce4ec;
+}
+/* ===== MENÚ HAMBURGUESA (NAV OVERLAY) ===== */
+.menu-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#mobileNav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(212, 107, 130, 0.98); /* Color sólido de marca */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2100;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    margin: 0;
+}
+
+#mobileNav.active {
+    transform: translateX(0);
+}
+
+#mobileNav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+#mobileNav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+@media (min-width: 769px) {
+    nav {
+        display: none; 
+    }
+}
+@media (max-width: 768px) {
+    header h1 { font-size: 1.4rem; }
+    header p { font-size: 0.8rem; }
 }

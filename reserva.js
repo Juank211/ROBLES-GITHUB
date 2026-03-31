@@ -336,4 +336,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // --- LÓGICA MENÚ MÓVIL (HAMBURGUESA) ---
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const mobileNav = document.getElementById('mobileNav');
+    const navLinks = document.querySelectorAll('#mobileNav a');
+
+    if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Evita scroll con menú abierto
+        });
+    }
+
+    if (menuClose && mobileNav) {
+        menuClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Cerrar automáticamente al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
 });
