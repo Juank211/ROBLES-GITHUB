@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contact_title">Contacto - Robles Penthouse</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="favicon.png" type="favicon/png">
+    <script src="traducciones.js"></script>
+</head>
+<body>
+    <div class="container reveal">
+        <div class="lang-switch" style="text-align: right; margin-bottom: 10px;">
+            <span onclick="changeLanguage('es')" id="btn-es" class="active">ES</span> | 
+            <span onclick="changeLanguage('en')" id="btn-en">EN</span>
+        </div>
+        <h1 data-i18n="contact_title">Contáctanos</h1>
+        
+        <a href="index.html" class="btn-retorno" data-i18n="contact_back">
+            <i class="fas fa-arrow-left"></i> 
+            <span>Inicio</span>
+        </a>
+        
+        <form class="form-grid" id="contactForm" action="https://formspree.io/f/xanbyqdg" method="POST">
+            <input type="text" name="_gotcha" style="display:none"> <!-- Campo oculto para evitar spam -->
+            <div class="form-group">
+                <label for="nombre" data-i18n="contact_label_name">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required data-i18n-placeholder="form_name_placeholder" placeholder="Tu nombre">
+                <span id="nombre-error" class="error-message" aria-live="polite"></span> 
+            </div>
+                            
+            <div class="form-group">
+                <label for="apellido" data-i18n="contact_label_lastname">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required data-i18n-placeholder="form_name_placeholder" placeholder="Tu apellido">
+                <span id="apellido" class="error-message" aria-live="polite"></span> 
+            </div>
+            
+            <div class="form-group">
+                <label for="email" data-i18n="contact_label_email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required data-i18n-placeholder="contact_label_email" placeholder="ejemplo@dominio.com">
+                <span id="email" class="error-message" aria-live="polite"></span> 
+            </div>
+            
+            <div class="form-group">
+                <label for="telefono" data-i18n="contact_label_phone">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}"
+                       required data-i18n-placeholder="contact_label_phone" placeholder="Ej: 3112345678">
+                <span id="telefono" class="error-message" aria-live="polite"></span> 
+            </div>
+            
+            <div class="form-group full-width">
+                <label for="asunto" data-i18n="contact_label_subject">Asunto:</label>
+                <select id="asunto" name="asunto" required>
+                    <option value="" disabled selected data-i18n="contact_subject_placeholder">Selecciona un tema</option>
+                    <option value="reserva" data-i18n="contact_subject_reserva">Reserva</option>
+                    <option value="queja" data-i18n="contact_subject_queja">Queja o reclamo</option>
+                    <option value="sugerencia" data-i18n="contact_subject_sugerencia">Sugerencia</option>
+                    <option value="informacion" data-i18n="contact_subject_informacion">Pregunta General / Información</option>
+                    <option value="colaboracion" data-i18n="contact_subject_colaboracion">Propuesta de Colaboración</option>
+                    <option value="feedback_estancia" data-i18n="contact_subject_feedback">Comentarios sobre mi Estancia</option>
+                    <option value="solicitud_documentacion" data-i18n="contact_subject_billing">Solicitud de Facturacion Electrónica</option>
+                </select>
+                <span id="asunto-error" class="error-message" aria-live="polite"></span> 
+            </div>
+            
+            <div class="form-group mensaje-full-width">
+                <label for="mensaje" data-i18n="contact_label_message">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required minlength="10" data-i18n-placeholder="contact_message_placeholder" placeholder="Escribe tu mensaje aquí..."></textarea>
+                <span id="mensaje-error" class="error-message" aria-live="polite"></span> 
+            </div>
+            
+            <div class="rating-container">
+                <p class="rating-title" id="rating-label" data-i18n="contact_rating_title">¿Cómo calificarías tu experiencia?</p>
+                <div class="estrellas" role="radiogroup" aria-labelledby="rating-label">
+                    <input type="radio" id="estrella5" name="estrellas" value="5">
+                    <label for="estrella5" title="Excelente">★</label>
+                    
+                    <input type="radio" id="estrella4" name="estrellas" value="4">
+                    <label for="estrella4" title="Muy bueno">★</label>
+                    
+                    <input type="radio" id="estrella3" name="estrellas" value="3">
+                    <label for="estrella3" title="Bueno">★</label>
+                    
+                    <input type="radio" id="estrella2" name="estrellas" value="2">
+                    <label for="estrella2" title="Regular">★</label>
+                    
+                    <input type="radio" id="estrella1" name="estrellas" value="1">
+                    <label for="estrella1" title="Malo">★</label>
+                </div>
+            </div>
+            
+            <button type="submit" data-i18n="contact_submit">Enviar mensaje</button>
+        </form>
+    </div>
+    
+    <script src="reserva.js"></script>
+
+    <footer>        
+        <p data-i18n="footer_rights">&copy; 2025 Robles Penthouse. Todos los derechos reservados</p>
+        <p><strong data-i18n="footer_contact">Contáctenos:</strong> 
+        <a href="https://wa.me/573116147982" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> +57 311 6147982
+        </a>
+        <a href="tel:+573223820825" class="telefono-link"> 
+            <i class="fas fa-phone"></i> +57 322 3820825
+        </a>
+        </p>
+        <div class="footer-icons">
+        <a href="https://www.instagram.com/robles_penthouse" target="_blank" rel="noopener noreferrer" title="Instagram">
+        <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.airbnb.com.co/rooms/1405070874350096096" target="_blank" rel="noopener noreferrer" title="Airbnb">
+        <i class="fab fa-airbnb"></i>
+        </a>
+        <a href="contacto.html" title="Tú opinión es Importante">
+        <i class="fas fa-envelope"></i>
+        </a>
+        </div>
+    </footer>
+
+    <!-- Chatbase script -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="ZfcTVZGPGBcQkyHnH6f6p";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+</body>
+</html>
