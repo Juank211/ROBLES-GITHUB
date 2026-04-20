@@ -10,8 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const { error } = await supabaseClient
                     .from('metricas_visitas')
-                    .insert([{ timestamp: new Date().toISOString(), platform: 'web' }]);
-                if (error) console.warn("KeepAlive Error:", error.message);
+                    .insert([{}]);
+                if (error) {
+                    console.warn("KeepAlive Error:", error.message);
+                } else {
+                    console.log("✅ Sistema Keep-Alive: Conexión con Supabase exitosa.");
+                }
             } catch (err) {
                 console.error("Critical KeepAlive Error:", err);
             }
