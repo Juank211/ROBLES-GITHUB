@@ -442,31 +442,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
 
-        renderReviews(reviews) {
+renderReviews(reviews) {
             const { reviewsGrid } = this.elements;
             if (!reviewsGrid) return;
 
-            // Clear current static reviews (as per requirement: use static as fallback)
+            // Limpia el indicador de carga inicial
             reviewsGrid.innerHTML = '';
 
             reviews.forEach(rev => {
                 const card = document.createElement('div');
                 card.className = 'tarjeta-reseña';
+                
+                // Construimos la estructura exacta para que aplique el alto fijo del CSS
                 card.innerHTML = `
                     <div class="encabezado-reseña">
                         <div class="icono-usuario"><i class="fas fa-user-circle"></i></div>
                         <div class="info-usuario">
-                            <h3>${rev.nombre}</h3>
-                            <span class="fecha-reseña">${rev.fecha}</span>
+                            <h3 style="margin:0; font-size:1.05rem; color:var(--text-dark); font-weight:600;">${rev.nombre}</h3>
+                            <span class="fecha-reseña" style="font-size:0.8rem; color:var(--text-light);">${rev.fecha}</span>
                         </div>
-                        <div class="estrellas">${rev.estrellas}</div>
+                        <div class="estrellas" style="color: var(--rose-primary); margin-left: auto; font-size: 0.9rem;">${rev.estrellas}</div>
                     </div>
                     <p class="texto-reseña">"${rev.texto}"</p>
                 `;
                 reviewsGrid.appendChild(card);
             });
-        }
-    };
+        }    };
 
     // === EJECUCIÓN INICIAL ===
     DataService.keepAlive();
