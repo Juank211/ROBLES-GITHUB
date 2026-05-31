@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="header_title">Robles Penthouse</title>
     <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-358JQvT1QYFhGgQ78o6i4b96495867..." crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="icon" href="favicon.png" type="favicon/png">
     <!-- intl-tel-input -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.10/build/css/intlTelInput.css">
@@ -22,12 +22,13 @@
 <body id="top">
 
     <header>
-        <div class="lang-switch">
-            <span onclick="changeLanguage('es')" id="btn-es" class="active">ES</span> | 
-            <span onclick="changeLanguage('en')" id="btn-en">EN</span>
-        </div>
-        <h1 data-i18n="header_title">Robles Penthouse</h1>
-        <p data-i18n="header_subtitle">Lujo, Vista y Confort en lo más alto de San Gil</p>
+        <a href="#top" class="logo-container">
+            <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529413/Logo_Robles_Penthouse_y3fmoz.jpg" alt="Logo Robles Penthouse">
+            <div class="nav-logo">
+                <span class="logo-main">ROBLES</span>
+                <span class="logo-sub">Penthouse</span>
+            </div>
+        </a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
             <i class="fas fa-bars"></i>
@@ -42,26 +43,35 @@
             <a href="#normas" data-i18n="nav_rules">Normas</a>
             <a href="#info" data-i18n="nav_info">Información</a>
             <a href="#ubicacion" data-i18n="nav_location">Ubicación</a>
-            <a href="#especial" data-i18n="nav_special">¿Por qué es especial?</a>
             <a href="#" id="mostrarFormulario" data-i18n="nav_book">Reserva aqui!!!</a>
         </nav>
 
-        <div class="header-icons">
-            <a href="https://www.instagram.com/robles_penthouse" target="_blank" rel="noopener noreferrer" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61578252129657" target="_blank" rel="noopener noreferrer" title="Facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.airbnb.com.co/rooms/1405070874350096096" target="_blank" rel="noopener noreferrer" title="Airbnb">
-                <i class="fab fa-airbnb"></i>
-            </a>
-            <a href="contacto.html" title="Tu opinión es Importante">
-                <i class="fas fa-envelope"></i>
-            </a>
+        <div class="header-right">
+            <div class="lang-switch">
+                <span onclick="changeLanguage('es')" id="btn-es" class="active">ES</span> | 
+                <span onclick="changeLanguage('en')" id="btn-en">EN</span>
+            </div>
         </div>
-
     </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                ROBLES
+                <span data-i18n="special_experience">Lujo y confort en las alturas</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="header_subtitle">Lujo, Vista y Confort en lo más alto de San Gil</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('mostrarFormulario').click()" data-i18n="form_submit">Consultar Disponibilidad</button>
+                <a href="#servicios" class="btn-outline" data-i18n="nav_services">Servicios</a>
+            </div>
+            <div class="hero-scroll">
+                <p data-i18n="virtual_tour_subtitle">Conoce nuestro espacio</p>
+                <a href="#acerca" class="scroll-circle"></a>
+            </div>
+        </div>
+    </section>
 
     <main class="contenedor">
 
@@ -116,8 +126,47 @@
                 <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529414/lampara_desde_el_segundo_piso_y6svre.jpg" alt="imagenes penthouse" loading="lazy">
                 <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529413/Logo_Robles_Penthouse_y3fmoz.jpg" alt="Logo Robles Penthouse">
             </div>
-      <p data-i18n="penthouse_desc">Robles Penthouse se destaca por su ubicación privilegiada en las afueras de San Gil, con una vista panorámica incomparable. Su diseño moderno y elegante, junto con un jacuzzi privado, hacen de este alojamiento un lugar exclusivo para descansar y disfrutar. Además, ofrece espacios acogedores, servicios de alta calidad, fácil acceso a atracciones turísticas y una experiencia pensada para quienes buscan confort, privacidad y un ambiente inolvidable.</p>
-    </section>
+
+            <div class="penthouse-content-block" style="margin-top: 30px; display: flex; flex-direction: column; gap: 25px;">
+                <p data-i18n="penthouse_desc" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark);">Robles Penthouse se destaca por su ubicación privilegiada en las afueras de San Gil, con una vista panorámica incomparable. Su diseño moderno y elegante, junto con un jacuzzi privado, hacen de este alojamiento un lugar exclusivo para descansar y disfrutar. Además, ofrece espacios acogedores, servicios de alta calidad, fácil acceso a atracciones turísticas y una experiencia pensada para quienes buscan confort, privacidad y un ambiente inolvidable.</p>
+                
+                <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 15px 0;">
+                
+                <h3 data-i18n="special_title" style="font-size: 1.6rem; color: var(--dark-rose); margin-bottom: 5px;">¿Qué hace especial a este alojamiento?</h3>
+                <p data-i18n="special_desc_1" style="font-weight: 500; color: var(--text-light);">Robles Penthouse te ofrece una experiencia de lujo y confort, este exclusivo penthouse cuenta con:</p>
+                
+                <ul class="special-features-list" style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 0;">
+                    <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500; background: var(--cream); padding: 12px 18px; border-radius: 10px;"><i class="fas fa-check-circle" style="color: var(--rose-primary);"></i> <span data-i18n="special_item_1">Habitaciones con baño privado</span></li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500; background: var(--cream); padding: 12px 18px; border-radius: 10px;"><i class="fas fa-check-circle" style="color: var(--rose-primary);"></i> <span data-i18n="special_item_2">Baño inteligente con funciones modernas</span></li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500; background: var(--cream); padding: 12px 18px; border-radius: 10px;"><i class="fas fa-check-circle" style="color: var(--rose-primary);"></i> <span data-i18n="special_item_3">Duchas con agua caliente</span></li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500; background: var(--cream); padding: 12px 18px; border-radius: 10px;"><i class="fas fa-check-circle" style="color: var(--rose-primary);"></i> <span data-i18n="special_item_4">Cocina completamente equipada</span></li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500; background: var(--cream); padding: 12px 18px; border-radius: 10px;"><i class="fas fa-check-circle" style="color: var(--rose-primary);"></i> <span data-i18n="special_item_5">Sala de estar interior y comedor exterior</span></li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500; background: var(--cream); padding: 12px 18px; border-radius: 10px;"><i class="fas fa-check-circle" style="color: var(--rose-primary);"></i> <span data-i18n="special_item_6">Minibar con sistema de karaoke</span></li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500; background: var(--cream); padding: 12px 18px; border-radius: 10px;"><i class="fas fa-check-circle" style="color: var(--rose-primary);"></i> <span data-i18n="special_item_7">Espacios diseñados para el descanso y el entretenimiento</span></li>
+                </ul>
+
+                <div class="special-experience-block" style="background: var(--cream); padding: 30px; border-radius: 15px; border-left: 5px solid var(--rose-primary); margin-top: 15px;">
+                    <h4 data-i18n="special_welcome" style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--dark-rose); margin-bottom: 8px;">¡Bienvenidos a Robles Penthouse!</h4>
+                    <p data-i18n="special_experience" style="font-weight: 600; color: var(--rose-primary); font-size: 1.1rem; margin-bottom: 12px;">Vive una experiencia de lujo y confort en las alturas.</p>
+                    <p data-i18n="special_designed" style="color: var(--text-light); line-height: 1.7;">Este exclusivo penthouse está diseñado para quienes buscan un ambiente elegante, moderno y lleno de detalles únicos. Perfecto para escapadas románticas, celebraciones especiales o simplemente para relajarte con estilo.</p>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <h4 data-i18n="special_includes" style="font-size: 1.2rem; color: var(--dark-rose); margin-bottom: 15px; font-weight: 700;">Detalles de la estadía:</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+                        <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.95rem;"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose-primary); margin-top: 8px;"></i> <span data-i18n="special_inc_1">Sala de estar exterior con calefactor y comedor al aire libre con vista panorámica</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.95rem;"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose-primary); margin-top: 8px;"></i> <span data-i18n="special_inc_2">Sala interior con televisor y un ambiente acogedor con vista a la ciudad</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.95rem;"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose-primary); margin-top: 8px;"></i> <span data-i18n="special_inc_3">Cocina totalmente equipada</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.95rem;"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose-primary); margin-top: 8px;"></i> <span data-i18n="special_inc_4">Lavadora-secadora incluida para que tu estadía sea agradable</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.95rem;"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose-primary); margin-top: 8px;"></i> <span data-i18n="special_inc_5">Servicio de minibar con sistema de karaoke para momentos inolvidables</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.95rem;"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose-primary); margin-top: 8px;"></i> <span data-i18n="special_inc_6">2 habitaciones, cada una con televisor, baño privado el cual cuenta con agua caliente y aire acondicionado</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; font-size: 0.95rem;"><i class="fas fa-circle" style="font-size: 0.5rem; color: var(--rose-primary); margin-top: 8px;"></i> <span data-i18n="special_inc_7">Jacuzzi con acceso a un amplio balcón</span></li>
+                    </ul>
+                </div>
+
+                <p data-i18n="special_footer" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-top: 15px; font-weight: 500;">Déjate envolver por el encanto de un espacio creado para el descanso, el entretenimiento y el placer. Robles Penthouse: donde el lujo se encuentra con la comodidad.</p>
+            </div>
+        </section>
 
     <!-- Formulario de reserva-->
 <section id="reserva">
@@ -230,57 +279,45 @@
 
     </section>
 
-    <section id="ubicacion" class="reveal">
-      <h2 data-i18n="location_nearby">Cerca de la Ubicación</h2>
-      <ul>
-        <li><i class="fas fa-utensils"></i> <span data-i18n="nearby_restaurant">Restaurante</span></li>
-        <li><i class="fas fa-sailboat"></i> <span data-i18n="nearby_water">Deportes Acuaticos</span></li>
-        <li><i class="fas fa-parachute-box"></i> <span data-i18n="nearby_paragliding">Parapente</span></li>
-      </ul>
-    </section>
-
-    <section id="especial" class="reveal">
-      <h2 data-i18n="special_title">¿Qué hace especial a este alojamiento?</h2>
-      <p>
-        <span data-i18n="special_desc_1">Robles Penthouse te ofrece una experiencia de lujo y confort, este exclusivo penthouse cuenta con:</span>
-<ul>
-  <li data-i18n="special_item_1">Habitaciones con baño privado</li>
-  <li data-i18n="special_item_2">Baño inteligente con funciones modernas</li>
-  <li data-i18n="special_item_3">Duchas con agua caliente</li>
-  <li data-i18n="special_item_4">Cocina completamente equipada</li>
-  <li data-i18n="special_item_5">Sala de estar interior y comedor exterior</li>
-  <li data-i18n="special_item_6">Minibar con sistema de karaoke</li>
-  <li data-i18n="special_item_7">Espacios diseñados para el descanso y el entretenimiento</li>
-</ul>
-
-<span data-i18n="special_desc_2">Ideal para escapadas románticas, celebraciones especiales o simplemente para disfrutar del estilo de vida en lo más alto.</span>
-<br><br>
-<b data-i18n="special_welcome">¡Bienvenidos a Robles Penthouse!</b><br>
-<span data-i18n="special_experience">Vive una experiencia de lujo y confort en las alturas.</span>
-<br><br>
-<span data-i18n="special_designed">Este exclusivo penthouse está diseñado para quienes buscan un ambiente elegante, moderno y lleno de detalles únicos. Perfecto para escapadas románticas, celebraciones especiales o simplemente para relajarte con estilo.</span>
-
-<br><br>
-<span data-i18n="special_includes">Incluye:</span>
-<ul>
-  <li data-i18n="special_inc_1">Sala de estar exterior con calefactor y comedor al aire libre con vista panorámica</li>
-  <li data-i18n="special_inc_2">Sala interior con televisor y un ambiente acogedor con vista a la ciudad</li>
-  <li data-i18n="special_inc_3">Cocina totalmente equipada</li>
-  <li data-i18n="special_inc_4">Lavadora-secadora incluida para que tu estadía sea agradable</li>
-  <li data-i18n="special_inc_5">Servicio de minibar con sistema de karaoke para momentos inolvidables</li>
-  <li data-i18n="special_inc_6">2 habitaciones, cada una con televisor, baño privado el cual cuenta con agua caliente y aire acondicionado</li>
-  <li data-i18n="special_inc_7">Jacuzzi con acceso a un amplio balcón</li>
-</ul>
-
-<span data-i18n="special_footer">Déjate envolver por el encanto de un espacio creado para el descanso, el entretenimiento y el placer. Robles Penthouse: donde el lujo se encuentra con la comodidad.</span>
-</p>
-    </section> 
-        
-        <section class="mapa reveal">
+        <section id="ubicacion" class="reveal">
             <h2 data-i18n="map_title">Ubicación</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3976.4!2d-73.135571!3d6.564812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1717940000000"
-                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="location-container">
+                <!-- Lado izquierdo: Mapa interactivo -->
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3976.4!2d-73.135571!3d6.564812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1717940000000"
+                        width="100%" height="380" style="border:0; display: block;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <!-- Lado derecho: Indicaciones y Lugares cercanos -->
+                <div class="location-info">
+                    <div class="location-details" style="display: flex; align-items: center; gap: 20px; margin-bottom: 25px;">
+                        <div class="location-icon" style="background: var(--rose-primary); color: var(--white); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(212, 107, 130, 0.2);">
+                            <i class="fas fa-map-marker-alt" style="font-size: 1.25rem;"></i>
+                        </div>
+                        <div class="location-text">
+                            <p style="font-size: 16px; color: var(--text-dark); line-height: 1.5; font-weight: 600; margin: 0;" data-i18n="header_subtitle">Lujo, Vista y Confort en lo más alto de San Gil</p>
+                            <span class="address-line2" style="font-size: 0.85rem; color: var(--text-light); display: block; margin-top: 5px;">San Gil, Santander, Colombia</span>
+                        </div>
+                    </div>
+                    <div class="location-nearby-places">
+                        <h3 style="font-size: 1.15rem; color: var(--dark-rose); margin-bottom: 15px;" data-i18n="location_nearby">Cerca de la Ubicación</h3>
+                        <ul class="location-nearby-list" style="list-style: none; display: flex; flex-direction: column; gap: 12px; padding: 0;">
+                            <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500;">
+                                <i class="fas fa-utensils" style="color: var(--rose-primary); width: 20px; text-align: center;"></i> 
+                                <span data-i18n="nearby_restaurant">Restaurante</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500;">
+                                <i class="fas fa-sailboat" style="color: var(--rose-primary); width: 20px; text-align: center;"></i> 
+                                <span data-i18n="nearby_water">Deportes Acuaticos</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 500;">
+                                <i class="fas fa-parachute-box" style="color: var(--rose-primary); width: 20px; text-align: center;"></i> 
+                                <span data-i18n="nearby_paragliding">Parapente</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
 
 <section id="reseñas" style="background-color: #fff5f8; padding: 60px 0;">
@@ -330,32 +367,62 @@
 
 
 
-    <footer>        
-        <p data-i18n="footer_rights">&copy; 2025 Robles Penthouse. Todos los derechos reservados</p>
-        <p><strong data-i18n="footer_contact">Contáctenos:</strong> 
-        <a href="https://wa.me/573116147982" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> +57 311 6147982
-        </a>
-        <a href="tel:+573223820825" class="telefono-link"> 
-            <i class="fas fa-phone"></i> +57 322 3820825
-        </a>
-        </p>
-        <div class="footer-icons">
-          <a href="https://www.instagram.com/robles_penthouse" target="_blank" rel="noopener noreferrer" title="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61578252129657" target="_blank" rel="noopener noreferrer" title="Facebook">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="https://www.airbnb.com.co/rooms/1405070874350096096" target="_blank" rel="noopener noreferrer" title="Airbnb">
-            <i class="fab fa-airbnb"></i>
-          </a>
-          <a href="contacto.html" title="Tú opinión es Importante">
-            <i class="fas fa-envelope"></i>
-          </a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">ROBLES</span>
+                <span class="footer-tagline">Penthouse</span>
+                <p data-i18n="penthouse_desc">Robles Penthouse se destaca por su ubicación privilegiada en las afueras de San Gil, con una vista panorámica incomparable. Su diseño moderno y elegante, junto con un jacuzzi privado, hacen de este alojamiento un lugar exclusivo para descansar y disfrutar.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/robles_penthouse" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61578252129657" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.airbnb.com.co/rooms/1405070874350096096" target="_blank" rel="noopener noreferrer" title="Airbnb"><i class="fab fa-airbnb"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="nav_about">Acerca</h4>
+                <ul>
+                    <li><a href="#acerca" data-i18n="nav_about">Acerca</a></li>
+                    <li><a href="#servicios" data-i18n="nav_services">Servicios</a></li>
+                    <li><a href="#normas" data-i18n="nav_rules">Normas</a></li>
+                    <li><a href="#ubicacion" data-i18n="nav_location">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="nav_spaces">Otros Espacios</h4>
+                <ul>
+                    <li><a href="#acerca" data-i18n="service_jacuzzi">Jacuzzi</a></li>
+                    <li><a href="#acerca" data-i18n="service_kitchen">Cocina Equipada</a></li>
+                    <li><a href="#acerca" data-i18n="service_minibar">Mini Bar</a></li>
+                    <li><a href="#populares" data-i18n="popular_views">Vista Panorámica</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_contact">Contáctenos</h4>
+                <div class="footer-contact-info">
+                    <div class="footer-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/573116147982" target="_blank" rel="noopener noreferrer">+57 311 6147982</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+573223820825">+57 322 3820825</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="contacto.html" data-i18n="contact_title">Contacto</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </footer>
-    <a href="#top" id="scrollTopBtn" class="btn-subir">⬆️</a>
+        <div class="footer-bottom">
+            <p data-i18n="footer_rights">&copy; 2025 Robles Penthouse. Todos los derechos reservados</p>
+            <ul class="footer-bottom-links">
+                <li><a href="#top" data-i18n="menu_close">Volver arriba</a></li>
+            </ul>
+        </div>
+    </footer>
+    <a href="#top" id="scrollTopBtn">⬆️</a>
     <a href="https://wa.me/573116147982?text=Hola!%20Estoy%20interesado%20en%20reservar%20el%20Robles%20Penthouse" 
    class="whatsapp-float" 
    target="_blank" 

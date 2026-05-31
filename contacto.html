@@ -10,17 +10,42 @@
     <script src="traducciones.js"></script>
 </head>
 <body>
-    <div class="container reveal">
-        <div class="lang-switch" style="text-align: right; margin-bottom: 10px;">
-            <span onclick="changeLanguage('es')" id="btn-es" class="active">ES</span> | 
-            <span onclick="changeLanguage('en')" id="btn-en">EN</span>
-        </div>
-        <h1 data-i18n="contact_title">Contáctanos</h1>
-        
-        <a href="index.html" class="btn-retorno" data-i18n="contact_back">
-            <i class="fas fa-arrow-left"></i> 
-            <span>Inicio</span>
+
+    <header>
+        <a href="index.html#top" class="logo-container">
+            <img src="https://res.cloudinary.com/daj3y9yja/image/upload/f_auto,q_auto,w_1200/v1773529413/Logo_Robles_Penthouse_y3fmoz.jpg" alt="Logo Robles Penthouse">
+            <div class="nav-logo">
+                <span class="logo-main">ROBLES</span>
+                <span class="logo-sub">Penthouse</span>
+            </div>
         </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="mobileNav">
+            <button class="menu-close" id="menuClose" aria-label="Cerrar menú">&times;</button>
+            <a href="index.html#acerca" data-i18n="nav_about">Acerca</a>
+            <a href="index.html#servicios" data-i18n="nav_services">Servicios</a>
+            <a href="index.html#espacios" data-i18n="nav_spaces">Otros Espacios</a>
+            <a href="index.html#populares" data-i18n="nav_popular">Servicios Populares</a>
+            <a href="index.html#normas" data-i18n="nav_rules">Normas</a>
+            <a href="index.html#info" data-i18n="nav_info">Información</a>
+            <a href="index.html#ubicacion" data-i18n="nav_location">Ubicación</a>
+            <a href="index.html#mostrarFormulario" data-i18n="nav_book">Reserva aqui!!!</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="lang-switch">
+                <span onclick="changeLanguage('es')" id="btn-es" class="active">ES</span> | 
+                <span onclick="changeLanguage('en')" id="btn-en">EN</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container reveal">
+        <h1 data-i18n="contact_title" style="margin-top: 40px;">Contáctanos</h1>
         
         <form class="form-grid" id="contactForm" action="https://formspree.io/f/xanbyqdg" method="POST">
             <input type="text" name="_gotcha" style="display:none"> <!-- Campo oculto para evitar spam -->
