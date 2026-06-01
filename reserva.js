@@ -48,37 +48,57 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
 
-        parseCSV(csv) {
-            const lines = csv.split('\n').filter(line => line.trim() !== '');
-            const result = [];
-            
-            // Regex para separar por coma ignorando comas dentro de comillas
-            const regex = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/;
+parseCSV(csv) {
+    const lines = csv.split('\n').filter(line => line.trim() !== '');
+    const result = [];
 
-            for (let i = 1; i < lines.length; i++) {
-                const cols = lines[i].split(regex);
-                if (cols.length >= 4) {
-                    const starsRaw = cols[2].replace(/"/g, '').trim();
-                    let stars = '★★★★★';
-                    if (starsRaw.includes('4')) stars = '★★★★☆';
-                    else if (starsRaw.includes('3')) stars = '★★★☆☆';
-                    else if (starsRaw.includes('2')) stars = '★★☆☆☆';
-                    else if (starsRaw.includes('1')) stars = '★☆☆☆☆';
+    // Función auxiliar para separar correctamente una línea de CSV respetando comillas
+    const parseCSVLine = (line) => {
+        const columns = [];
+        let current = '';
+        let inQuotes = false;
 
-                    const comment = cols[3].replace(/"/g, '').trim();
-                    if (comment === '(sin comentario)' || comment === '') continue;
+        for (let i = 0; i < line.length; i++) {
+            const char = line[i];
 
-                    result.push({
-                        nombre: cols[0].replace(/"/g, '').trim(),
-                        fecha: cols[1].replace(/"/g, '').trim(),
-                        estrellas: stars,
-                        texto: comment
-                    });
-                }
+            if (char === '"') {
+                inQuotes = !inQuotes; // Alterna el estado de si estamos dentro de comillas
+            } else if (char === ',' && !inQuotes) {
+                columns.push(current.trim());
+                current = '';
+            } else {
+                current += char;
             }
-            return result;
-        },
+        }
+        columns.push(current.trim());
+        return columns;
+    };
 
+    for (let i = 1; i < lines.length; i++) {
+        const cols = parseCSVLine(lines[i]);
+        
+        if (cols.length >= 4) {
+            // Mapeo de estrellas
+            const starsRaw = cols[2].trim();
+            let stars = '★★★★★';
+            if (starsRaw.includes('4')) stars = '★★★★☆';
+            else if (starsRaw.includes('3')) stars = '★★★☆☆';
+            else if (starsRaw.includes('2')) stars = '★★☆☆☆';
+            else if (starsRaw.includes('1')) stars = '★☆☆☆☆';
+
+            const comment = cols[3].trim();
+            if (comment === '(sin comentario)' || comment === '') continue;
+
+            result.push({
+                nombre: cols[0],
+                fecha: cols[1],
+                estrellas: stars,
+                texto: comment
+            });
+        }
+    }
+    return result;
+},
         async saveReservation(data) {
             try {
                 const { error } = await supabaseClient
